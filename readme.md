@@ -18,7 +18,13 @@ JSON
 ### Datenausgabe
 Wenn du deine maximale Kraft berechnet hast, kannst du wissen, wie viel Gewicht und wie viele Wiederholungen du trainierst kannst, um deine gewünschtes Ziel zu erreichen. 
 
-
+## Mockups
+![Information](./Mockups/information.png)
+![1RM](./Mockups/1rm.png)
+![Fortschritt](./Mockups/fortschritt.png)
+![Resultat Detail](./Mockups/resultat-detail.png)
+![Resultat](./Mockups/resultat.png)
+![Training](./Mockups/training.png)
 
 
 
