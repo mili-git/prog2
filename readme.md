@@ -21,10 +21,11 @@ Wenn du deine maximale Kraft berechnet hast, kannst du wissen, wie viel Gewicht 
 ## Mockups
 ![Information](./Mockups/information.png)
 ![1RM](./Mockups/1rm.png)
+![Training](./Mockups/training.png)
 ![Fortschritt](./Mockups/fortschritt.png)
 ![Resultat Detail](./Mockups/resultat-detail.png)
 ![Resultat](./Mockups/resultat.png)
-![Training](./Mockups/training.png)
+
 
 
 
