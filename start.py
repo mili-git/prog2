@@ -14,5 +14,13 @@ def rm_calculator():
 def training():
     return render_template("training.html")    
 
+@app.route('/Fortschri77')
+def fort_schritt():
+    return render_template("fortschritt.html")    
+
+@app.route('/ResUltatE')
+def result():
+    return render_template("resultate.html")    
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
