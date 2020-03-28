@@ -8,12 +8,62 @@ Diese Webapplikation wird für Menschen, die seine maximale Stärke kennenlernen
 
 ## Workflow
 Zu Beginn der Projektentwicklung wurde das Ablaufdiagramm erstellt.
+![Flussdiagramm](./Mockups/flussdiagramm.png)
 
 ### Dateneingabe
 Um deine maximale Stärke zu berechnen, musst du einige persönlichen Daten in die Anwendung eingeben, wie z.B das Gewicht, dass du gehoben hast und die entsprechenden Wiederholungen. Gib dein Ziel ein, das du erreichen möchtest. Da die App individuell angepasst ist, kannst du auch deine persönlichen Daten eingeben und für jeden Erfolg, den du erzielst, erhältst du einfache Benachrichtigung und du kannst auf die nächste Stufe fortsetzen. 
 		 
 ### Datenverarbeitung/Speicherung 
-JSON 
+
+#### 1RM Calculator
+json
+[
+	{
+		"gewicht": 25.5,
+		"wiederholungen": 10
+	},
+	{
+		"gewicht": 50,
+		"wiederholungen": 5
+	}
+]
+
+
+#### Training
+json
+[
+	{
+		"1rm": {
+			"gewicht": 25.5,
+			"wiederholungen": 10
+		},
+		"bereich": "kraft",
+		"anzahlTrainingsEinheiten": 5,
+		"startDatum": "21.03.2020",
+		"endDatum": "21.03.2020",
+		"berechnung": {
+			"gewicht": 20,
+			"wiederholungen": 8
+		},
+		"fortschritt": ["22.03.2020", "23.03.2020", "25.03.2020"]
+	},
+	{
+		"1rm": {
+			"gewicht": 15,
+			"wiederholungen": 20
+		},
+		"bereich": "ausdauer",
+		"anzahlTrainingsEinheiten": 10,
+		"startDatum": "21.03.2020",
+		"endDatum": "21.03.2020",
+		"berechnung": {
+			"gewicht": 13,
+			"wiederholungen": 15
+		},
+		"fortschritt": ["22.03.2020", "23.03.2020", "25.03.2020"]
+		
+	},
+]
 
 ### Datenausgabe
 Wenn du deine maximale Kraft berechnet hast, kannst du wissen, wie viel Gewicht und wie viele Wiederholungen du trainierst kannst, um deine gewünschtes Ziel zu erreichen. 
@@ -26,6 +76,15 @@ Wenn du deine maximale Kraft berechnet hast, kannst du wissen, wie viel Gewicht 
 ![Resultat](./Mockups/resultat.png)
 ![Resultat Detail](./Mockups/resultat-detail.png)
 
+## Optionale Erweiterungen
+Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte das Archievment "Buff Dude" freigeschalten werden wenn 5 Trainingseinheiten im Bereich Kraft erfolgreich absolviert wurden
+
+## Validierung
+- [ ]  1RM Calculator
+  - [ ] Es können nicht doppelte Einträge (gleiches Gewicht und  Wiederholungen vorhanden sein)
+- [ ] Training
+  - [ ] Es kann nicht das genau gleiche Training nochmals erfasst werden
+  - [ ] Enddatum kann nicht vor Startdatum liegen
 
 
 
