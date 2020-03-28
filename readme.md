@@ -8,7 +8,7 @@ Diese Webapplikation wird für Menschen, die seine maximale Stärke kennenlernen
 
 ## Workflow
 Zu Beginn der Projektentwicklung wurde das Ablaufdiagramm erstellt.
-![Flussdiagramm](./Mockups/flussdiagramm.png)
+![Flussdiagramm](#)
 
 ### Dateneingabe
 Um deine maximale Stärke zu berechnen, musst du einige persönlichen Daten in die Anwendung eingeben, wie z.B das Gewicht, dass du gehoben hast und die entsprechenden Wiederholungen. Gib dein Ziel ein, das du erreichen möchtest. Da die App individuell angepasst ist, kannst du auch deine persönlichen Daten eingeben und für jeden Erfolg, den du erzielst, erhältst du einfache Benachrichtigung und du kannst auf die nächste Stufe fortsetzen. 
@@ -16,7 +16,7 @@ Um deine maximale Stärke zu berechnen, musst du einige persönlichen Daten in d
 ### Datenverarbeitung/Speicherung 
 
 #### 1RM Calculator
-json
+```json
 [
 	{
 		"gewicht": 25.5,
@@ -27,10 +27,10 @@ json
 		"wiederholungen": 5
 	}
 ]
-
+```
 
 #### Training
-json
+```json
 [
 	{
 		"1rm": {
@@ -64,6 +64,7 @@ json
 		
 	},
 ]
+```
 
 ### Datenausgabe
 Wenn du deine maximale Kraft berechnet hast, kannst du wissen, wie viel Gewicht und wie viele Wiederholungen du trainierst kannst, um deine gewünschtes Ziel zu erreichen. 
