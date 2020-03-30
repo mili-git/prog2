@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Title</title>
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
-		<script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/jquery-3.4.1.slim.min.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
-	</head>
+	{% include "header.html" %}
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="#">Title_App</a>
@@ -25,10 +19,10 @@
 						<a class="nav-link" href="{{ url_for('training') }}">Training</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{url_for('fort_schritt') }}">Fortschritt</a>
+						<a class="nav-link" href="{{url_for('fortschritt') }}">Fortschritt</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{url_for('result') }}">Resultate</a>
+						<a class="nav-link" href="{{url_for('resultate') }}">Resultate</a>
 					</li>
 				</ul>
 			</div>
