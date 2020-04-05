@@ -28,22 +28,52 @@
 			</div>
 		</nav>
 		<div class="container-fluid mt-4">
-			<h1>Training:</h1>
-			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<form>
-				<div class="form-group">
-					<label for="formGroupExampleInput">Startdatum</label>
-					<input type="text" class="form-control" id="formGroupExampleInput" placeholder="#">
+			{% if existiert_bereits %}
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<strong>Holy guacamole!</strong> Dieser Eintrag existiert bereits!
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				</div>
-				<div class="form-group">
-					<label for="formGroupExampleInput2">Enddatum</label>
-					<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="#">
+			{% endif %}
+			<h1>Training: </h1>
+			<p> In questo riquadro puoi scegliere uno dei tuoi RM che hai calcolato nella pagina precedente e che si sono salvati automaticamente.</p><p>
+		Basta scegliere l'obiettivo per il quale ti vuoi allenare e inserisci la data di partenza e quando vorresti finire. </p>
+		<p>Buon allenamento!</p>
+		<form method="POST">
+			<div class="form-group">
+				<label for="rm_auswahl">1 RM Auswahl</label>
+				<select class="form-control" id="rm_auswahl" name="rm">
+					{% for i in rms %}
+						<option value="{{ i }}">Resultat: {{ i["resultat"]}}, Gewicht: {{ i["gewicht"]}}, Wiederholungen: {{ i["wiederholungen"]}} </option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="verbesserungsbereich">Verbesserungsbereich</label>
+				<select class="form-control" id="verbesserungsbereich" name="verbesserungsbereich">
+					<option value="kraft">Kraft</option>
+					<option value="ausdauer">Ausdauer</option>
+					<option value="muskelaufbau">Muskelaufbau</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput">Anzahl Trainingseinheiten</label>
+				<input type="number" min="1" step="1" class="form-control" id="formGroupExampleInput" placeholder="Bitte Anhzahl Trainingseinheiten eingeben" name="trainingseinheiten" required>
+			</div>
+			<div class="form-group">
+				<label for="startdatum">Startdatum</label>
+				<div class="input-group date">
+					<input type="text" class="form-control datepicker" id="startdatum" placeholder="TT.MM.JJJJ" name="startdatum">
 				</div>
-			</form>
-		</body>
-	</html>
+			</div>
+			<div class="form-group">
+				<label for="enddatum">Enddatum</label>
+				<div class="input-group date">
+					<input type="text" class="form-control datepicker" id="enddatum" placeholder="TT.MM.JJJJ" name="enddatum">
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Speichern</button>
+		</form>
+	</form>
+	{% include "footer.html" %}
+</body>
+</html>
