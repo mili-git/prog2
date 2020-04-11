@@ -76,6 +76,9 @@ Wenn du deine maximale Kraft berechnet hast, kannst du wissen, wie viel Gewicht 
 ![Fortschritt](./Mockups/fortschritt.png)
 ![Resultat](./Mockups/resultat.png)
 ![Resultat Detail](./Mockups/resultat-detail.png)
+![Provisorisch](./Mockups/Mockup_1.PNG)
+![Provisorisch](./Mockups/Mockup_2.PNG)
+![Provisorisch](./Mockups/Mockup_3.PNG)
 
 ## Optionale Erweiterungen
 Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte das Archievment "Buff Dude" freigeschalten werden wenn 5 Trainingseinheiten im Bereich Kraft erfolgreich absolviert wurden
