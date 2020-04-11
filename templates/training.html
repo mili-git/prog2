@@ -43,7 +43,7 @@
 				<label for="rm_auswahl">1 RM Auswahl</label>
 				<select class="form-control" id="rm_auswahl" name="rm">
 					{% for i in rms %}
-						<option value="{{ i }}">Resultat: {{ i["resultat"]}}, Gewicht: {{ i["gewicht"]}}, Wiederholungen: {{ i["wiederholungen"]}} </option>
+						<option value="{{ i }}">{{ i["uebungsname"]}} | 1RM: {{ i["resultat"]}} Gewicht: {{ i["gewicht"]}}, Wiederholungen: {{ i["wiederholungen"]}} </option>
 					{% endfor %}
 				</select>
 			</div>

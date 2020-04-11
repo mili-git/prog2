@@ -39,10 +39,12 @@ def rm_calculator():
 		alle_rms = lade_daten_aus_json(rm_json_pfad, [])
 
 		#Extrahiere information aus dem request 
+		übungsname = str(request.form["übungsname"])
 		gewicht = float(request.form["gewicht"])
 		wiederholungen = int(request.form["wiederholungen"])
 
 		rm = {
+			"uebungsname": übungsname,
 			"gewicht": gewicht,
 			"wiederholungen": wiederholungen
 		}
