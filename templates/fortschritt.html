@@ -36,6 +36,17 @@
 				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
-		{% include "footer.html" %}
-	</body>
+		<form method="POST">
+			<div class="form-group">
+				<label for="rm_auswahl">1 RM Auswahl</label>
+				<select class="form-control" id="rm_auswahl" name="rm">
+					{% for i in rms %}
+						<option value="{{ i }}">{{ i["uebungsname"]}} | 1RM: {{ i["resultat"]}} Gewicht: {{ i["gewicht"]}}, Wiederholungen: {{ i["wiederholungen"]}} </option>
+					{% endfor %}
+				</select>
+			</div>
+		</form>
+	</div>
+	{% include "footer.html" %}
+</body>
 </html>

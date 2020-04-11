@@ -95,7 +95,29 @@ def training():
 
 @app.route('/fortschritt')
 def fortschritt():
-    return render_template("fortschritt.html")  
+	rms = lade_daten_aus_json(rm_json_pfad, [])
+	if request.method == "POST":
+		trainingseinheiten = lade_daten_aus_json(trainingseinheiten_json_pfad, [])
+
+	#Extrahiere info aus dem request
+		rm = request.form["rm"]
+		verbesserungsbereich = request.form["verbesserungsbereich"]
+		startdatum = request.form["startdatum"]
+
+		training = {
+			"rm": rm,
+			"verbesserungsbereich": verbesserungsbereich,
+			"anzahltrainingseinheiten": anzahltrainingseinheiten,
+			"startdatum": startdatum,
+		}
+		
+		if training in trainingseinheiten:
+			return render_template("training.html", existiert_bereits = True)
+		trainingseinheiten.append(training)
+		schreibe_daten_in_json(trainingseinheiten_json_pfad, trainingseinheiten)
+		return redirect(url_for("resultate"))
+
+    return render_template("fortschritt.html")
 
 @app.route('/resultate')
 def resultate():
