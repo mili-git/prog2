@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	{% include "header.html" %}
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Title_App</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="{{url_for('index') }}">Information</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('rm_calculator') }}">1RM Rechner</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ url_for('training') }}">Training<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{url_for('fortschritt') }}">Fortschritt</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{url_for('resultate') }}">Resultate</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid mt-4">
+			<h1>Trainings Bestätigung vom {{training["startdatum"]}}:</h1>
+			<h3>Für {{training['rm']['uebungsname']}} im Bereich {{training["verbesserungsbereich"]}} kannst du mit folgenden Daten bis am {{training["end_datum"]}} trainieren:</h3>
+			<table class ="table">
+				<thead>
+					<tr>
+						<th scope="col">Beschreibung</th>
+						<th scope="col">Minimum</th>
+						<th scope="col">Maximum</th>
+					</tr>
+				</thead>
+				<tr>
+					<th scope="row">Gewicht</th>
+					<td>{{training["minimum_gewicht"]}} kg</td>
+					<td>{{training["maximum_gewicht"]}} kg</td>
+				</tr>
+				<tr>
+					<th scope="row">Wiederholungen</th>
+					<td>{{training["minimum_wiederholungen"]}}</td>
+					<td>{{training["maximum_wiederholungen"]}}</td>
+				</tr>
+				<tr>
+					<th scope="row">Einheiten pro Woche</th>
+					<td>{{training["minimum_einheiten_pro_woche"]}}</td>
+					<td>{{training["maximum_einheiten_pro_woche"]}}</td>
+				</tr>
+			</table>
+		</div>
+		{% include "footer.html" %}
+	</body>
+</html>
