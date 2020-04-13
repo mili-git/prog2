@@ -84,13 +84,13 @@ Wenn du deine maximale Kraft berechnet hast, kannst du wissen, wie viel Gewicht 
 Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte das Archievment "Buff Dude" freigeschalten werden wenn 5 Trainingseinheiten im Bereich Kraft erfolgreich absolviert wurden
 
 ## Validierung
-- [ ] Flussdiagramm
+- [x] Flussdiagramm
 - [x]  1RM Calculator
   - [x] Es können nicht doppelte Einträge (gleiches Gewicht und  Wiederholungen vorhanden sein)
 - [ ] Training
   - [x] Es kann nicht das genau gleiche Training nochmals erfasst werden
-  - [ ] Enddatum kann nicht vor Startdatum liegen
-  - [ ] Berechnungsmethoden (Prozentsatz)
+  - [x] Berechnungsmethoden (Prozentsatz)
+  - [ ] Datumsformat für das Enddatum auf Deutsch 
 - [ ] Fortschritt
   - [ ] HTML umsetzen 
   - [ ] Dropdown mit Daten befüllen 
