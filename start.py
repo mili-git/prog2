@@ -165,8 +165,8 @@ def training():
 
 	return render_template("training.html", rms = rms)
 
-@app.route('/fortschritt')
-def fortschritt():
+@app.route('/tracking')
+def tracking():
 	rms = lade_daten_aus_json(rm_json_pfad, [])
 	if request.method == "POST":
 		trainingseinheiten = lade_daten_aus_json(trainingseinheiten_json_pfad, [])
@@ -188,7 +188,7 @@ def fortschritt():
 		trainingseinheiten.append(training)
 		schreibe_daten_in_json(trainingseinheiten_json_pfad, trainingseinheiten)
 		return redirect(url_for("resultate"))
-	return render_template("fortschritt.html")
+	return render_template("tracking.html")
 
 @app.route('/resultate')
 def resultate():

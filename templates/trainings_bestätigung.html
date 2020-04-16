@@ -19,7 +19,7 @@
 						<a class="nav-link" href="{{ url_for('training') }}">Training<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{url_for('fortschritt') }}">Fortschritt</a>
+						<a class="nav-link" href="{{url_for('tracking') }}">Tracking</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{url_for('resultate') }}">Resultate</a>
@@ -29,7 +29,7 @@
 		</nav>
 		<div class="container-fluid mt-4">
 			<h1>Trainings Bestätigung vom {{training["startdatum"]}}:</h1>
-			<h3>Für {{training['rm']['uebungsname']}} im Bereich {{training["verbesserungsbereich"]}} kannst du mit folgenden Daten bis am {{training["end_datum"]}} trainieren:</h3>
+			<h3>Für {{training['rm']['uebungsname']}} im Bereich {{training["verbesserungsbereich"]}} kannst du mit folgenden Daten bis am<span style="color:green"> {{training["end_datum"]}} </span>trainieren:</h3>
 			<table class ="table">
 				<thead>
 					<tr>
