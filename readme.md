@@ -76,8 +76,8 @@ Wenn du deine maximale Kraft berechnet hast, kannst du wissen, wie viel Gewicht 
 ![Fortschritt](./Mockups/fortschritt.png)
 ![Resultat](./Mockups/resultat.png)
 ![Resultat Detail](./Mockups/resultat-detail.png)
-![Provisorisch](./Mockups/Mockup_1.PNG)
-![Provisorisch](./Mockups/Mockup_2.PNG)
+![Provisorisch](./Mockups/Mockup_1.png)
+![Provisorisch](./Mockups/Mockup_2.png)
 ![Provisorisch](./Mockups/Mockup_3.PNG)
 
 ## Optionale Erweiterungen
@@ -91,11 +91,14 @@ Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte da
   - [x] Es kann nicht das genau gleiche Training nochmals erfasst werden
   - [x] Berechnungsmethoden (Prozentsatz)
   - [ ] Datumsformat für das Enddatum auf Deutsch 
-- [ ] Fortschritt
+- [ ] Fortschritt rename auf Tracking 
   - [ ] HTML umsetzen 
   - [ ] Dropdown mit Daten befüllen 
   - [ ] abspeichern
-
+- [ ] Layout
+  - [ ] Background hinzufügen
+  - [ ] Header und Footer bearbeiten 
+- [ ] Benachrichtigung 
 
 
 
