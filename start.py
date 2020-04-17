@@ -170,7 +170,7 @@ def training():
 def tracking():
 	rms = lade_daten_aus_json(rm_json_pfad, [])
 	if request.method == "POST":
-		traingseinheiten = lade_daten_aus_json(trainingseinheiten_json_pfad, [])
+		tracking = lade_daten_aus_json(tracking_json_pfad, [])
 
 	#Extrahiere info aus dem request
 		rm = dictionary_von_string(request.form["rm"])
@@ -183,14 +183,14 @@ def tracking():
 			"startdatum": startdatum,
 		}
 		
-		if training in trainingseinheiten:
+		if training in tracking:
 			return render_template("tracking.html", existiert_bereits = True, rms = rms)
 		
-		trainingseinheiten.append(training)
-		schreibe_daten_in_json(trainingseinheiten_json_pfad, trainingseinheiten)
-		return redirect(url_for("resultate"))
+		tracking.append(training)
+		schreibe_daten_in_json(tracking_json_pfad, tracking)
+		return render_template("resultate.html", tracking = tracking)
 
-	return render_template("tracking.html")
+	return render_template("tracking.html", rms = rms)
 
 @app.route('/resultate')
 def resultate():
