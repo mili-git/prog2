@@ -102,7 +102,6 @@ def berechne_trainings_werte(training):
 
 	return training
 
- 
 @app.route('/')
 def index():
     return render_template("index.html")

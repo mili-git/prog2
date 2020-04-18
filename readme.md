@@ -95,6 +95,9 @@ Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte da
   - [ ] HTML umsetzen 
   - [ ] Dropdown mit Daten befüllen 
   - [ ] abspeichern
+  - [ ] Datapicker nicht forwarding  
+- [ ] Resultate
+  - [ ] Plotly implementieren 
 - [ ] Layout
   - [ ] Background hinzufügen
   - [ ] Header und Footer bearbeiten 
