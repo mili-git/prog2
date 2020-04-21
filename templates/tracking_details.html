@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	{% include "header.html" %}
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Title_App</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="{{url_for('index') }}">Information</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('rm_calculator') }}">1RM Rechner</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('training') }}">Training</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="{{url_for('tracking') }}">Tracking<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{url_for('resultate') }}">Resultate</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid mt-4">
+			{% if not training %}
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<strong>Holy guacamole!</strong> Ein Training mit diesem Namen existiert nicht!
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				</div>
+			{% else %}
+				<h1>Tracking für {{ training["titel"] }}:</h1>
+				<form method="POST">
+					<div class="form-group">
+						<label for="gewicht">Gewicht</label>
+						<select class="form-control" id="gewicht" name="gewicht">
+							{% for i in range(training["minimum_gewicht"]|int, training["maximum_gewicht"]|int) %}
+								<option value="{{ i }}">{{ i }} kg</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="wiederholungen">Wiederholungen</label>
+						<select class="form-control" id="wiederholungen" name="wiederholungen">
+							{% for i in range(training["minimum_wiederholungen"], training["maximum_wiederholungen"]) %}
+								<option value="{{ i }}">{{ i }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="startdatum">Wann hast du trainiert?</label>
+						<div class="input-group date">
+							<input type="text" class="form-control datepicker" id="startdatum" placeholder="TT.MM.JJJJ" name="startdatum">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Eintrag speichern</button>
+				</form>
+			{% endif %}
+		</div>
+		{% include "footer.html" %}
+	</body>
+</html>

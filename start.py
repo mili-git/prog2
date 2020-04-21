@@ -113,12 +113,12 @@ def rm_calculator():
 		alle_rms = lade_daten_aus_json(rm_json_pfad, [])
 
 		#Extrahiere information aus dem request 
-		übungsname = str(request.form["übungsname"])
-		gewicht = float(request.form["gewicht"]) 
+		beschreibung = str(request.form["beschreibung"])
+		gewicht = float(request.form["gewicht"])
 		wiederholungen = int(request.form["wiederholungen"])
 
 		rm = {
-			"uebungsname": übungsname,
+			"beschreibung": beschreibung,
 			"gewicht": gewicht,
 			"wiederholungen": wiederholungen
 		}
@@ -144,6 +144,7 @@ def training():
 
 		#Extrahiere info aus dem request
 		rm = dictionary_von_string(request.form["rm"])
+		titel = request.form["titel"]
 		verbesserungsbereich = request.form["verbesserungsbereich"]
 		startdatum = request.form["startdatum"]
 
@@ -151,49 +152,64 @@ def training():
 			"rm": rm,
 			"verbesserungsbereich": verbesserungsbereich,
 			"startdatum": startdatum,
+			"titel": titel
 		}
-		
-		if training in trainingseinheiten:
-			return render_template("training.html", existiert_bereits = True, rms = rms)
 
+		#Prüfe ob das Training mit dem Titel bereits vorhanden 
+		for element in trainingseinheiten:
+			if element["titel"] == titel:
+				return render_template("training.html", existiert_bereits = True, rms = rms)
+		
 		# Minimun Gewicht etc. berechnen
 		training = berechne_trainings_werte(training)
 		
 		trainingseinheiten.append(training)
 		schreibe_daten_in_json(trainingseinheiten_json_pfad, trainingseinheiten)
-		return render_template("trainings_bestätigung.html", training = training)
+		return render_template("trainings_bestaetigung.html", training = training)
 
 	return render_template("training.html", rms = rms)
 
 @app.route('/tracking', methods=["GET", "POST"])
 def tracking():
-	rms = lade_daten_aus_json(rm_json_pfad, [])
+	trainingseinheiten = lade_daten_aus_json(trainingseinheiten_json_pfad, [])
 	if request.method == "POST":
-		tracking = lade_daten_aus_json(tracking_json_pfad, [])
+		trainings_titel = request.form["trainings_auswahl"]
+		return redirect(url_for("tracking_details", trainings_titel = trainings_titel))
 
-	#Extrahiere info aus dem request
-		rm = dictionary_von_string(request.form["rm"])
-		verbesserungsbereich = request.form["verbesserungsbereich"]
-		startdatum = request.form["startdatum"]
+	return render_template("tracking.html", trainingseinheiten = trainingseinheiten)
 
-		training = {
-			"rm": rm,
-			"verbesserungsbereich": verbesserungsbereich,
-			"startdatum": startdatum,
-		}
-		
-		if training in tracking:
-			return render_template("tracking.html", existiert_bereits = True, rms = rms)
-		
-		tracking.append(training)
-		schreibe_daten_in_json(tracking_json_pfad, tracking)
-		return render_template("resultate.html", tracking = tracking)
+@app.route('/tracking_details/<trainings_titel>', methods = ["GET", "POST"])
+def tracking_details(trainings_titel):
+	#Finde das Training mit diesem Trainingstitel
+	trainingseinheiten = lade_daten_aus_json(trainingseinheiten_json_pfad, [])
+	training = None
+	for element in trainingseinheiten:
+		if element["titel"] == trainings_titel:
+			training = element
+		if request.method == "POST":
+			gewicht = float(request.form["gewicht"])
+			wiederholungen = int(request.form["wiederholungen"])
+			startdatum = request.form["startdatum"]
 
-	return render_template("tracking.html", rms = rms)
+			tracking_eintrag = {
+				"gewicht": gewicht,
+				"wiederholungen": wiederholungen,
+				"startdatum": startdatum
+			}
+
+			#Wir müssen hier nicht mehr überprüfen ob das Training vorhanden ist. Da der Benutzer sonst die Eingaben nicht hätte machen
+			tracking = training.get("tracking", [])
+			tracking.append(tracking_eintrag)
+			training["tracking"] = tracking 
+			schreibe_daten_in_json(trainingseinheiten_json_pfad, trainingseinheiten)
+			return redirect(url_for("resultate"))
+		return render_template("tracking_details.html", training = training)
+
 
 @app.route('/resultate')
 def resultate():
-    return render_template("resultate.html")    
+	trainingseinheiten = lade_daten_aus_json(trainingseinheiten_json_pfad, [])
+	return render_template("resultate.html", trainingseinheiten = trainingseinheiten)    
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)#

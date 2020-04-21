@@ -92,11 +92,12 @@ Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte da
   - [x] Berechnungsmethoden (Prozentsatz)
   - [ ] Datumsformat für das Enddatum auf Deutsch 
 - [ ] Fortschritt rename auf Tracking 
-  - [ ] HTML umsetzen 
-  - [ ] Dropdown mit Daten befüllen 
-  - [ ] abspeichern
+  - [x] HTML umsetzen 
+  - [x] Dropdown mit Daten befüllen 
+  - [x] abspeichern
   - [ ] Datapicker nicht forwarding  
 - [ ] Resultate
+  - [ ] HTML umsetzen 
   - [ ] Plotly implementieren 
 - [ ] Layout
   - [ ] Background hinzufügen

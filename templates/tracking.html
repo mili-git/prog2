@@ -29,31 +29,16 @@
 		</nav>
 		<div class="container-fluid mt-4">
 			<h1>Tracking:</h1>
-			<p> Du kannst hier deine "weight training progress" jederzeit speichern.</p>
 			<form method="POST">
 				<div class="form-group">
-					<label for="rm_auswahl">1 RM Auswahl</label>
-					<select class="form-control" id="rm_auswahl" name="rm">
-						{% for i in rms %}
-							<option value="{{ i }}">{{ i["uebungsname"]}} | 1RM: {{ i["resultat"]}} Gewicht: {{ i["gewicht"]}}, Wiederholungen: {{ i["wiederholungen"]}} </option>
+					<label for="rm_auswahl">Trainingsauswahl</label>
+					<select class="form-control" id="trainings_auswahl" name="trainings_auswahl">
+						{% for training in trainingseinheiten %}
+							<option value="{{ training['titel'] }}">{{ training["titel"]}} {{ training["rm"]["resultat"]}} Gewicht: {{ training["rm"]["gewicht"]}}, Wiederholungen: {{ training["rm"]["wiederholungen"]}} </option>
 						{% endfor %}
 					</select>
 				</div>
-				<div class="form-group">
-					<label for="formGroupExampleInput">Gewicht</label>
-					<input type="number" min="0" step="0.1" class="form-control" id="formGroupExampleInput" placeholder="Bitte Gewicht eingeben" name="gewicht" required>
-				</div>
-				<div class="form-group">
-					<label for="formGroupExampleInput2">Wiederholungen</label>
-					<input type="number" min="0" class="form-control" id="formGroupExampleInput2" placeholder="Bitte Wiederholungen eingeben" name="wiederholungen" required>
-				</div>
-				<div class="form-group">
-					<label for="startdatum">Wann hast du trainiert?</label>
-					<div class="input-group date">
-						<input type="text" class="form-control datepicker" id="startdatum" placeholder="TT.MM.JJJJ" name="startdatum">
-					</div>
-				</div>
-				<button type="submit" class="btn btn-primary">Siehe Resultate</button>
+				<button type="submit" class="btn btn-primary">Beginne dein Tracking</button>
 			</form>
 		</div>
 		{% include "footer.html" %}
