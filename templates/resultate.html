@@ -26,19 +26,19 @@
 					</li>
 				</ul>
 			</div>
-				</nav>
+		</nav>
 		<div class="container-fluid mt-4">
 			<h1>Resultate für Trainings:</h1>
-
+			<p> Für jede Cards kannst du dich die Details anschauen.</p>
 			{% for training in trainingseinheiten %}
-			<div class="card w-25" style="float: left;">
-				<div class="card-body">
-					<h5 class="card-title">{{ training["titel"] }}</h5>
-					<h6 class="card-subtitle mb-2 text-muted">{{ training["verbesserungsbereich"] }}</h6>
-					<p class="card-text">TODO</p>
-					<a href="#" class="card-link">Details anschauen</a>
+				<div class="card w-25" style="float: left;">
+					<div class="card-body">
+						<h5 class="card-title">{{ training["titel"] }}</h5>
+						<h6 class="card-subtitle mb-2 text-muted">{{ training["verbesserungsbereich"] }}</h6>
+						<p class="card-text">TODO</p>
+						<a href="#" class="card-link">Details</a>
+					</div>
 				</div>
-			</div>
 			{% endfor %}
 		</div>
 		{% include "footer.html" %}
