@@ -36,33 +36,36 @@
 			{% endif %}
 			<h1>Training: </h1>
 			<p> Hier kannst du eine von den berechnete 1RM auswählen und auf den gewünschen Verbesserungsbereich klicken. Wähle noch den Startdatum und LOS! </p>
-		<p>Viel Spass beim training!</p>
-		<form method="POST">
-			<div class="form-group">
-				<label for="rm_auswahl">1 RM Auswahl</label>
-				<select class="form-control" id="rm_auswahl" name="rm">
-					{% for i in rms %}
-						<option value="{{ i }}">{{ i["uebungsname"]}} 1RM: {{ i["resultat"]}} | Gewicht: {{ i["gewicht"]}} Wiederholungen: {{ i["wiederholungen"]}} </option>
-					{% endfor %}
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="verbesserungsbereich">Verbesserungsbereich</label>
-				<select class="form-control" id="verbesserungsbereich" name="verbesserungsbereich">
-					<option value="kraft">Kraft</option>
-					<option value="ausdauer">Ausdauer</option>
-					<option value="muskelaufbau">Muskelaufbau</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="startdatum">Startdatum</label>
-				<div class="input-group date">
-					<input type="text" class="form-control datepicker" id="startdatum" placeholder="TT.MM.JJJJ" name="startdatum">
+			<p>Viel Spass beim training!</p>
+			<form method="POST">
+				<div class="form-group">
+					<label for="rm_auswahl">1 RM Auswahl</label>
+					<select class="form-control" id="rm_auswahl" name="rm">
+						{% for i in rms %}
+							<option value="{{ i }}">{{ i["beschreibung"]}} 1RM: {{ i["resultat"]}} | Gewicht: {{ i["gewicht"]}} Wiederholungen: {{ i["wiederholungen"]}} </option>
+						{% endfor %}
+					</select>
 				</div>
-			</div>
-			<button type="submit" class="btn btn-primary">Speichern</button>
-		</form>
-	</div>
-	{% include "footer.html" %}
-</body>
+				<div class="form-group">
+					<label for="formGroupExampleInput">Titel</label>
+				<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Bitte Trainingstitel eingeben" name="titel" required></div>
+				<div class="form-group">
+					<label for="verbesserungsbereich">Verbesserungsbereich</label>
+					<select class="form-control" id="verbesserungsbereich" name="verbesserungsbereich">
+						<option value="kraft">Kraft</option>
+						<option value="ausdauer">Ausdauer</option>
+						<option value="muskelaufbau">Muskelaufbau</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="startdatum">Startdatum</label>
+					<div class="input-group date">
+						<input type="text" class="form-control datepicker" id="startdatum" placeholder="TT.MM.JJJJ" name="startdatum">
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Speichern</button>
+			</form>
+		</div>
+		{% include "footer.html" %}
+	</body>
 </html>
