@@ -70,15 +70,14 @@ Um deine maximale Stärke zu berechnen, musst du einige persönlichen Daten in d
 Wenn du deine maximale Kraft berechnet hast, kannst du wissen, wie viel Gewicht und wie viele Wiederholungen du trainierst kannst, um deine gewünschtes Ziel zu erreichen. 
 
 ## Mockups
-![Information](./Mockups/information.png)
-![1RM](./Mockups/1rm.png)
-![Training](./Mockups/training.png)
-![Fortschritt](./Mockups/fortschritt.png)
-![Resultat](./Mockups/resultat.png)
-![Resultat Detail](./Mockups/resultat-detail.png)
-![Provisorisch](./Mockups/mockup_1.jpg)
-![Provisorisch](./Mockups/mockup_2.jpg)
-![Provisorisch](./Mockups/mockup_3.jpg)
+![Information](./Mockups/information.jpg)
+![1RM](./Mockups/1rm_calculator.jpg)
+![Training berechnen](./Mockups/training_berechnen.jpg)
+![Tabelle Training](./Mockups/training_tabelle.jpg)
+![Tracking auswählen](./Mockups/tracking_training_auswaehlen.jpg)
+![Tracking](./Mockups/tracking.jpg)
+![Resultate Cards](./Mockups/resultate_cards.jpg)
+![Diagramm](./Mockups/diagramm.jpg)
 
 ## Optionale Erweiterungen
 Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte das Archievment "Buff Dude" freigeschalten werden wenn 5 Trainingseinheiten im Bereich Kraft erfolgreich absolviert wurden
