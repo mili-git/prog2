@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	{% include "header.html" %}
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Title_App</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="{{url_for('index') }}">Information</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('rm_calculator') }}">1RM Rechner</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('training') }}">Training</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{url_for('tracking') }}">Tracking</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="{{url_for('resultate') }}">Resultate</a><span class="sr-only">(current)</span>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-fluid mt-4">
+			<h1>Detailsansicht für {{training["titel"]}}:</h1>
+			{% if (training["tracking"] | lenght) > 0 %}
+				<table class ="table">
+					<thead>
+						<tr>
+							<th scope="col">Gewicht</th>
+							<th scope="col">Wiederholungen</th>
+							<th scope="col">Startdatum</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for einheit in training["tracking"] %}
+							<tr>
+								<td>{{einheit['gewicht']}}</td>
+								<td>{{einheit['wiederholungen']}}</td>
+								<td>{{einheit['startdatum']}}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				{{ chart | safe }}
+			{% else %}
+				<h1>Keine Trackingeinträge verfügbar</h1>
+			{% endif %}
+		</div>
+		{% include "footer.html" %}
+	</body>
+</html>

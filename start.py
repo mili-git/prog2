@@ -5,6 +5,10 @@ from flask import redirect
 from flask import url_for
 import json
 from datetime import datetime, timedelta
+import plotly.express as px
+import plotly.graph_objects as graph_objects
+import plotly
+
 
 app = Flask("Name App")
 
@@ -210,6 +214,33 @@ def tracking_details(trainings_titel):
 def resultate():
 	trainingseinheiten = lade_daten_aus_json(trainingseinheiten_json_pfad, [])
 	return render_template("resultate.html", trainingseinheiten = trainingseinheiten)    
+
+@app.route('/details/<trainings_titel>')
+def details(trainings_titel):
+	trainingseinheiten = lade_daten_aus_json(trainingseinheiten_json_pfad,[])
+	#Finde das entsprechende Training 
+	resultat = None
+	for training in trainingseinheiten:
+		if training["titel"] == trainings_titel:
+			resultat = training
+
+	#Sortiere die Trackingseinträge nach Datum (vom ältesten zum neusten)
+	#TODO
+	#resultat["tracking"] = resultat["tracking"].sort(key=lambda tup:datetime.strptime(tup[3], '%d.%m.%Y'))
+	# Hole Daten für Chart
+	fig = go.Figure()
+	x = []
+	y = []
+	for einheit in resultat["tracking"]:
+		x.append(einheit["startdatum"])
+		y.apped(einheit["gewicht"])
+	return render_template("details.html")
+
+	fig.add_trace(go.Scatter(x = x, y = y, line=dict(color='royalblue', width=4)))
+	div = plotly.offline.plot(fig, output_type="div")
+	return render_template("details.html", chart=div, training=resultat)  
+
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)#
