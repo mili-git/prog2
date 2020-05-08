@@ -96,11 +96,11 @@ Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte da
   - [x] abspeichern
   - [ ] Datapicker nicht forwarding  
 - [ ] Resultate
-  - [ ] HTML umsetzen 
-  - [ ] Plotly implementieren 
+  - [x] HTML umsetzen 
+  - [x] Plotly implementieren 
+  - [ ] Sortiere die Trackingseinträge nach Datum (vom ältesten zum neusten)
 - [ ] Layout
   - [ ] Background hinzufügen
-  - [ ] Header und Footer bearbeiten 
 - [ ] Benachrichtigung 
 
 
