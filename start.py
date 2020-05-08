@@ -236,8 +236,12 @@ def details(trainings_titel):
 		y.append(einheit["gewicht"])
 
 	fig.add_trace(go.Scatter(x = x, y = y, line=dict(color='royalblue', width=4)))
+	#Edit the layout
+	fig.update_layout(title='Average',
+		xaxis_title='Startdatum',
+		yaxis_title='Gewicht')
 	div = plotly.offline.plot(fig, output_type="div")
-	return render_template("details.html", chart=div, training=resultat)  
+	return render_template("details.html", chart=div, training=resultat) 
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)#
