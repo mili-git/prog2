@@ -28,29 +28,34 @@
 			</div>
 		</nav>
 		<div class="container-fluid mt-4">
-			<h1>Detailsansicht für {{training["titel"]}}:</h1>
-			{% if (training["tracking"] | length) > 0 %}
-				<table class ="table">
-					<thead>
-						<tr>
-							<th scope="col">Gewicht</th>
-							<th scope="col">Wiederholungen</th>
-							<th scope="col">Startdatum</th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for einheit in training["tracking"] %}
-							<tr>
-								<td>{{einheit['gewicht']}}</td>
-								<td>{{einheit['wiederholungen']}}</td>
-								<td>{{einheit['startdatum']}}</td>
-							</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-				{{ chart | safe }}
+			{% if not training %}
+				<h1>Dieses Training existiert nicht</h1>
 			{% else %}
-				<h1>Keine Trackingeinträge verfügbar</h1>
+				<h1>Detailsansicht für {{training["titel"]}}:</h1>
+				{% if (training["tracking"] | length) > 0 %}
+					<table class ="table">
+						<thead>
+							<tr>
+								<th scope="col">Gewicht</th>
+								<th scope="col">Wiederholungen</th>
+								<th scope="col">Startdatum</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for einheit in training["tracking"] %}
+								<tr>
+									<td>{{einheit['gewicht']}}</td>
+									<td>{{einheit['wiederholungen']}}</td>
+									<td>{{einheit['startdatum']}}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{{ gewicht_diagram | safe }}
+					{{ wiederholungen_diagram | safe }}
+				{% else %}
+					<h1>Keine Trackingeinträge verfügbar</h1>
+				{% endif %}
 			{% endif %}
 		</div>
 		{% include "footer.html" %}

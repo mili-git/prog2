@@ -7,7 +7,6 @@ import json
 from datetime import datetime, timedelta
 import locale
 locale.setlocale(locale.LC_TIME, "de_CH")
-import plotly.express as px
 import plotly.graph_objects as go
 import plotly
 
@@ -107,6 +106,13 @@ def berechne_trainings_werte(training):
     training["end_datum"] = end_datum
 
     return training
+
+def zeichne_balken_diagram(x_daten, y_daten, titel):
+    fig = go.Figure(
+        data=[go.Bar(x = x_daten, y = y_daten)],
+        layout_title_text=titel
+        )
+    return plotly.offline.plot(fig, output_type="div")
 
 @app.route('/')
 def index():
@@ -221,30 +227,27 @@ def resultate():
 def details(trainings_titel):
     trainingseinheiten = lade_daten_aus_json(trainingseinheiten_json_pfad, [])
     # Finde das entsprechende Training
-    resultat = []
+    resultat = None
     for training in trainingseinheiten:
         if training["titel"] == trainings_titel:
-            resultat.append(training)
+            resultat = training
  
+ # TODO: Sortiere die Trackingseinträge nach Datum (vom ältesten zum neusten)
+# Hole Daten für Chart
+    if resultat:
+        fig = go.Figure()
+        x = []
+        y_gewicht = []
+        y_wiederholungen = []
+        for einheit in resultat.get("tracking", []):
+            x.append(einheit["startdatum"])
+            y_wiederholungen.append(einheit["wiederholungen"])
+            y_gewicht.append(einheit["gewicht"])
 
-    # Sortiere die Trackingseinträge nach Datum (vom ältesten zum neusten)
-    # TODO
-    # resultat["tracking"] = resultat["tracking"].sort(key=lambda tup: datetime.strptime(tup[3], '%d.%m.%Y'))
-    # Hole Daten für Chart
-    fig = go.Figure()
-    x = []
-    y = []
-    for einheit in resultat["tracking"]:
-        x.append(einheit["startdatum"])
-        y.append(einheit["gewicht"])
-
-    fig.add_trace(go.Scatter(x = x, y = y, line=dict(color='royalblue', width=4)))
-    #Edit the layout
-    fig.update_layout(title='Average',
-        xaxis_title='Startdatum',
-        yaxis_title='Gewicht')
-    div = plotly.offline.plot(fig, output_type="div")
-    return render_template("details.html", chart=div, training=resultat) 
+        gewicht_diagram = zeichne_balken_diagram(x, y_gewicht, "Trackingansicht für Gewicht")
+        wiederholungen_diagram = zeichne_balken_diagram(x, y_wiederholungen, "Trackingansicht für Wiederholungen")
+        return render_template("details.html", gewicht_diagram=gewicht_diagram, wiederholungen_diagram=wiederholungen_diagram, training=resultat)
+    return  render_template("details.html", chart=None, training=None)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)#
