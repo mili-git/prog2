@@ -89,7 +89,7 @@ Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte da
 - [ ] Training
   - [x] Es kann nicht das genau gleiche Training nochmals erfasst werden
   - [x] Berechnungsmethoden (Prozentsatz)
-  - [ ] Datumsformat für das Enddatum auf Deutsch 
+  - [x] Datumsformat für das Enddatum auf Deutsch 
 - [ ] Fortschritt rename auf Tracking 
   - [x] HTML umsetzen 
   - [x] Dropdown mit Daten befüllen 
@@ -98,7 +98,7 @@ Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte da
 - [ ] Resultate
   - [x] HTML umsetzen 
   - [x] Plotly implementieren 
-  - [ ] Sortiere die Trackingseinträge nach Datum (vom ältesten zum neusten)
+  - [x] Sortiere die Trackingseinträge nach Datum (vom ältesten zum neusten)
 - [ ] Layout
   - [ ] Background hinzufügen
 - [ ] Benachrichtigung 
