@@ -86,7 +86,7 @@ Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte da
 - [x] Flussdiagramm
 - [x]  1RM Calculator
   - [x] Es können nicht doppelte Einträge (gleiches Gewicht und  Wiederholungen vorhanden sein)
-- [ ] Training
+- [x] Training
   - [x] Es kann nicht das genau gleiche Training nochmals erfasst werden
   - [x] Berechnungsmethoden (Prozentsatz)
   - [x] Datumsformat für das Enddatum auf Deutsch 
@@ -99,9 +99,11 @@ Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte da
   - [x] HTML umsetzen 
   - [x] Plotly implementieren 
   - [x] Sortiere die Trackingseinträge nach Datum (vom ältesten zum neusten)
+  - [ ] TODO löschen 
 - [ ] Layout
-  - [ ] Background hinzufügen
-- [ ] Benachrichtigung 
+  - [x] Background hinzufügen
+  - [ ] App_Title setzen 
+
 
 
 

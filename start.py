@@ -6,14 +6,14 @@ from flask import url_for
 import json
 from datetime import datetime, timedelta
 import locale
-locale.setlocale(locale.LC_TIME, "de_CH")
 import plotly.graph_objects as go
 import plotly
 
 
-app = Flask("Name App")
+app = Flask("Name_App")
 
 rm_json_pfad = "./rm.json"
+locale.setlocale(locale.LC_TIME, "de_CH")
 trainingseinheiten_json_pfad = "./traingseinheiten.json"
 tracking_json_pfad = "./tracking.json"
 
@@ -198,24 +198,24 @@ def tracking_details(trainings_titel):
     for element in trainingseinheiten:
         if element["titel"] == trainings_titel:
             training = element
-        if request.method == "POST":
-            gewicht = float(request.form["gewicht"])
-            wiederholungen = int(request.form["wiederholungen"])
-            startdatum = request.form["startdatum"]
+    if request.method == "POST":
+        gewicht = float(request.form["gewicht"])
+        wiederholungen = int(request.form["wiederholungen"])
+        startdatum = request.form["startdatum"]
 
-            tracking_eintrag = {
-                "gewicht": gewicht,
-                "wiederholungen": wiederholungen,
-                "startdatum": startdatum
-            }
+        tracking_eintrag = {
+            "gewicht": gewicht,
+            "wiederholungen": wiederholungen,
+            "startdatum": startdatum
+        }
 
-            #Wir müssen hier nicht mehr überprüfen ob das Training vorhanden ist. Da der Benutzer sonst die Eingaben nicht hätte machen
-            tracking = training.get("tracking", [])
-            tracking.append(tracking_eintrag)
-            training["tracking"] = tracking 
-            schreibe_daten_in_json(trainingseinheiten_json_pfad, trainingseinheiten)
-            return redirect(url_for("resultate"))
-        return render_template("tracking_details.html", training = training)
+        #Wir müssen hier nicht mehr überprüfen ob das Training vorhanden ist. Da der Benutzer sonst die Eingaben nicht hätte machen
+        tracking = training.get("tracking", [])
+        tracking.append(tracking_eintrag)
+        training["tracking"] = tracking 
+        schreibe_daten_in_json(trainingseinheiten_json_pfad, trainingseinheiten)
+        return redirect(url_for("resultate"))
+    return render_template("tracking_details.html", training = training)
 
 
 @app.route('/resultate')
