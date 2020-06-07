@@ -12,7 +12,7 @@ Zu Beginn der Projektentwicklung wurde das Ablaufdiagramm erstellt.
 
 ### Dateneingabe
 Um deine maximale Stärke zu berechnen, musst du einige persönlichen Daten in die Anwendung eingeben, wie z.B das Gewicht, dass du gehoben hast und die entsprechenden Wiederholungen. Gib dein Ziel ein, das du erreichen möchtest. Da die App individuell angepasst ist, kannst du auch deine persönlichen Daten eingeben und für jeden Erfolg, den du erzielst, erhältst du einfache Benachrichtigung und du kannst auf die nächste Stufe fortsetzen. 
-		 
+
 ### Datenverarbeitung/Speicherung 
 
 #### 1RM Calculator
@@ -82,6 +82,28 @@ Wenn du deine maximale Kraft berechnet hast, kannst du wissen, wie viel Gewicht 
 ## Optionale Erweiterungen
 Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte das Archievment "Buff Dude" freigeschalten werden wenn 5 Trainingseinheiten im Bereich Kraft erfolgreich absolviert wurden
 
+## Installationsanleitung
+Zuerst muss dieses Repository lokale auf dem PC vorhanden sein hierzu muss folgender Befehl ausgeführt werden:
+```
+git clone https://github.com/mili-git/prog2
+```
+Klont das Repository, das sich unter 'https://github.com/mili-git/prog2' befindet, auf die lokale Maschine. Das Original-Repo kann sich im lokalen Dateisystem oder auf einer Remote-Maschine befinden, die via HTTP zugänglich ist. 
+
+Anschliessend muss sichergestellt sein, dass **Flask** und **Plotly** installiert sind.
+
+> pip ist ein Werkzeug welches in Python3 vorinstalliert ist, es ermöglicht externe Pakete zu installieren und für meine Python Installation zu nutzen.
+
+Um ein Paket zu installieren öffnet man die Konsole(Terminal) und gibt:
+```
+sudo pip3 install flask
+sudo pip3 install plotly
+```
+
+Um nun die Webapplikation starten zu können, muss in den Ordner navigiert werden, welcher via dem **git clone** Befehl erzeugt wurde. Anschliessend kann die Webapplikation mit folgendem Befehl gestartet werden:
+```
+python start.py
+```
+
 ## Validierung
 - [x] Flussdiagramm
 - [x]  1RM Calculator
@@ -90,11 +112,10 @@ Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte da
   - [x] Es kann nicht das genau gleiche Training nochmals erfasst werden
   - [x] Berechnungsmethoden (Prozentsatz)
   - [x] Datumsformat für das Enddatum auf Deutsch 
-- [ ] Fortschritt rename auf Tracking 
+- [x] Fortschritt rename auf Tracking 
   - [x] HTML umsetzen 
   - [x] Dropdown mit Daten befüllen 
   - [x] abspeichern
-  - [ ] Datapicker nicht forwarding  
 - [x] Resultate
   - [x] HTML umsetzen 
   - [x] Plotly implementieren 

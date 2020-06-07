@@ -7,14 +7,16 @@ from flask import url_for
 import json
 from datetime import datetime, timedelta
 import locale
-import plotly.graph_objects as go
+import plotly.graph_objects as go #importieren und umbenennen
 import plotly
 
 
-app = Flask("Name_App")
+app = Flask("OneRM")
 
+#Variabeln definieren
 rm_json_pfad = "./rm.json"
-locale.setlocale(locale.LC_TIME, "de_CH")
+#https://www.python-kurs.eu/python3_time_and_date.php 
+locale.setlocale(locale.LC_TIME, "de_CH") #gibt Ausgaben in Landessprache aus, Umstellung auf Deutsch
 trainingseinheiten_json_pfad = "./traingseinheiten.json"
 tracking_json_pfad = "./tracking.json"
 
@@ -98,6 +100,7 @@ def berechne_trainings_werte(training):
     # https://www.w3schools.com/python/python_datetime.asp
     end_datum = end_datum.strftime("%A, %d.%m.%Y") 
 
+    #Values in Objekt (training) speichern 
     training["minimum_gewicht"] = minimum_gewicht
     training["maximum_gewicht"] = maximum_gewicht
     training["minimum_wiederholungen"] = minimum_wiederholungen
@@ -125,9 +128,10 @@ def index():
 def rm_calculator():
     if request.method == "POST":
         # Lies alle informationen über unsere bestehenden RMs aus der Datei
+        #Führe Funktion aus (mitgegebene Wert = "c:/desktop/rm.json")
         alle_rms = lade_daten_aus_json(rm_json_pfad, [])
 
-        #Extrahiere information aus dem request 
+        #Extrahiere information aus dem Post-request
         beschreibung = str(request.form["beschreibung"])
         gewicht = float(request.form["gewicht"])
         wiederholungen = int(request.form["wiederholungen"])
