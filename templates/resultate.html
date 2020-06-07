@@ -7,7 +7,7 @@
 		background-repeat: no-repeat;">
 	</body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Title_App</a>
+		<a class="navbar-brand" href="#">OneRM</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 		</button>
@@ -39,7 +39,6 @@
 				<div class="card-body">
 					<h5 class="card-title">{{ training["titel"] }}</h5>
 					<h6 class="card-subtitle mb-2 text-muted">{{ training["verbesserungsbereich"] }}</h6>
-					<p class="card-text">TODO</p>
 					<a class="btn btn-primary" href="{{url_for('details', trainings_titel=training['titel'])}}" role="button">Details</a>
 				</div>
 			</div>

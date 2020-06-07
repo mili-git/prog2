@@ -1,5 +1,6 @@
 from flask import Flask
-from flask import render_template
+#render_template in Flask gibt HTML-Code im Browser zurück 
+from flask import render_template 
 from flask import request
 from flask import redirect
 from flask import url_for
@@ -17,6 +18,7 @@ locale.setlocale(locale.LC_TIME, "de_CH")
 trainingseinheiten_json_pfad = "./traingseinheiten.json"
 tracking_json_pfad = "./tracking.json"
 
+#prüfe, ob Daten aus Json Verfügbar sind (try/except)
 def lade_daten_aus_json (pfad, standard_wert = []):
     #https://www.programiz.com/python-programming/json
     try:
@@ -28,6 +30,7 @@ def lade_daten_aus_json (pfad, standard_wert = []):
 def schreibe_daten_in_json(pfad, daten):
     #https://stackoverflow.com/questions/17043860/how-to-dump-a-dict-to-a-json-file
     with open(pfad, 'w') as datei:
+        #json.dump schreibt daten in eine datei
         json.dump(daten, datei, indent = 4)
 
 def berechne_rm(gewicht, wiederholungen):
@@ -135,6 +138,7 @@ def rm_calculator():
             "wiederholungen": wiederholungen
         }
 
+        #Prüfen, ob rm Bereich vorhanden ist
         if rm in alle_rms:
             return render_template("1rm.html", existiert_bereits = True)
         #Berechne 1 RM
@@ -232,7 +236,6 @@ def details(trainings_titel):
         if training["titel"] == trainings_titel:
             resultat = training
  
- # TODO: Sortiere die Trackingseinträge nach Datum (vom ältesten zum neusten)
 # Hole Daten für Chart
     if resultat:
         fig = go.Figure()

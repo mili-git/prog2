@@ -95,14 +95,14 @@ Es könnte noch ein Archievment Bereich ergänzt werden. Zum Beispiel könnte da
   - [x] Dropdown mit Daten befüllen 
   - [x] abspeichern
   - [ ] Datapicker nicht forwarding  
-- [ ] Resultate
+- [x] Resultate
   - [x] HTML umsetzen 
   - [x] Plotly implementieren 
   - [x] Sortiere die Trackingseinträge nach Datum (vom ältesten zum neusten)
-  - [ ] TODO löschen 
-- [ ] Layout
+  - [x] TODO löschen 
+- [x] Layout
   - [x] Background hinzufügen
-  - [ ] App_Title setzen 
+  - [x] App_Title setzen 
 
 
 
